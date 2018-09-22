@@ -1,0 +1,580 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>华为收银台</title>
+    <link rel="shortcut icon" href="../dl/img_ent_en_logo_ico.ico" />
+<style>
+*{
+    margin:0;
+    padding:0;
+    font-family: "微软雅黑";
+    font-size:14px;
+    font-style: normal;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+li{
+    list-style:none;
+}
+#u1 li{
+	font-size:12px;
+	margin-top:5px;
+	}
+#zf div{
+	float:left;
+	margin-top:50px;
+	margin-left:20px;
+	width:255px;
+	height:50px;
+	border:1px solid rgb(204,204,204);
+	}
+#zf img{
+	margin-top:10px;
+	margin-left:70px;
+	}
+.bqContent, .xgContent,.fContent{
+    width: 94%;
+    height: 100%;
+    margin:auto;
+}
+#bq{
+    width: 100%;
+    height: 140px;
+    float: left;
+    background: #f0f0f0;
+}
+.bqContent, .xgContent{
+    border-top:1px solid #E8E8E8;
+}
+.bqContent .bq_C_ul ul{
+    width: 100%;
+    height: 47px;
+    float: left;
+    line-height:47px;
+    margin-top:50px;
+}
+.bqContent .bq_C_ul ul li{
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+.bqContent .bq_C_ul ul li a{
+    width: 200px;
+    height: 22px;
+    margin-left:15px;
+    color: #333;
+    font-size:18px;
+    display: inline-block;
+
+}
+.bqContent .bq_C_ul ul li em{
+    width: 47px;
+    height: 48px;
+    float: left;
+    display: inline-block;
+}
+.bqContent .bq_C_ul .s1 em{
+    background: url("imgs/icon-common.png") no-repeat 0px -150px;
+}
+.bqContent .bq_C_ul .s2 em{
+    background: url("imgs/icon-common.png") no-repeat -94px -150px;
+}
+.bqContent .bq_C_ul .s3 em{
+    background: url("imgs/icon-common.png") no-repeat -141px -150px;
+}
+.bqContent .bq_C_ul .s4 em{
+    background: url("imgs/icon-common.png") no-repeat -47px -150px;
+}
+
+
+#xg{
+    width: 100%;
+    height: 217px;
+    float: left;
+    background: #F0F0F0;
+}
+.xg_c_left{
+    width: 75%;
+    height: 100%;
+    float: left;
+}
+.xg_c_left dl{
+    width: 16.6%;
+    height: 190px;
+    float: left;
+    margin-top:30px;
+}
+.xg_c_left dl dt{
+    width: 100%;
+    height: 47px;
+}
+.xg_c_left dl dt em, .xg_c_right dl dt em{
+    width: 25px;
+    height: 2px;
+    float: left;
+    display: inline-block;
+    background: #A8A8A8;
+}
+.xg_c_left dl dt p{
+    color: #3a3a3a;
+}
+.xg_c_left dl dd li{
+    width: 100%;
+    height: 24px;
+    line-height:24px;
+}
+.xg_c_left dl dd li a{
+    color: #333;
+    font-size:12px;
+}
+.xg_c_left dl dd li a:hover{
+    color: #CA141D;
+}
+.xg_c_left .endp{
+    width: 60px;
+    height: 17px;
+    float: left;
+    display: inline-block;
+}
+.xg_c_left .button{
+    width: 32px;
+    height: 17px;
+    float: left;
+}
+.xg_c_left .button span{
+    width: 14px;
+    height: 14px;
+    display: block;
+    line-height: 14px;
+    text-align: center;
+    margin-right:2px;
+    border-radius: 3px;
+    margin-top:3px;
+    float: left;
+    background: #B3B3B3;
+}
+.xg_c_left .button span:hover{
+    cursor: pointer;
+}
+.xg_c_right{
+    width: 25%;
+    height: 100%;
+    float: right;
+}
+.xg_c_right dl{
+    width: 171px;
+    height: 123px;
+    margin:30px auto;
+}
+.xg_c_right dl dt p{
+    width: 100%;
+    height: 36px;
+    font-size:24px;
+    color: #000;
+}
+.xg_c_right dl dt span{
+    font-size:12px;
+}
+.xg_c_right dd{
+    width: 163px;
+    height: 37px;
+    margin-top:10px;
+    background: #fff;
+    text-align: center;
+    /*line-height:37px;*/
+    border-radius: 5px;
+    border:1px solid #DDDDDD;
+}
+.xg_c_right dd a{
+    width: 100px;
+    height: 23px;
+    line-height:30px;
+    display: inline-block;
+    color: #9A0000;
+    padding:5px 0 0 10px;
+    background: url("imgs/icon-common.png") no-repeat -101px -12px ;
+}
+
+#footer{
+    width: 100%;
+    height: 121px;
+    float: left;
+    background: #E6E6E6;
+}
+.fContent .pimg{
+    width: 117px;
+    height: 36px;
+    margin-top:55px;
+    display: inline-block;
+    float: left;
+}
+.fContent p{
+    width: 629px;
+    height: 20px;
+    float: left;
+    color: #a4a4a4;
+    font-size:12px;
+    margin-top:40px;
+}
+.fContent p a{
+    color: #a4a4a4;
+    font-size:12px;
+}
+.fContent p a:hover{
+    color: #CA151D;
+}
+.fContent span{
+    width: 444px;
+    height: 39px;
+    float: right;
+}
+.fContent span img{
+    width: 70px;
+    height: 24px;
+    margin-top:-7px;
+}
+
+#fk img{
+	cursor:pointer;
+	}
+</style>
+</head>
+<body>
+<img src="imgs/logo20170801113951.png" style="margin:30px 40px;float:left;"/>
+<div style="width:1px;height:20px;background-color:rgb(204,204,204);float:left;margin-top:45px;margin-left:-90px;"></div>
+<p style="font-size:18px;float:left;margin:42px -70px;">收银台</p>
+<div style="background-color:rgb(116,193,72);width:95%;height:3px;float:left;margin-left:40px;"></div>
+<div style="background-color:rgb(239,250,237);width:95%;height:245px;float:left;margin-left:40px;">
+<img src="imgs/success_icon (1).png" style="margin:30px;float:left;"/>
+<p style="color:rgb(116,193,72);font-size:18px;float:left;margin-top:30px;">订单提交成功，只差付款了~<span style="color:black;"> &nbsp;&nbsp;订单号： <a style="color:red;">11560061828</a></span></p>
+<p style="float:right;margin:20px;">订单金额：<span style="color:red;font-size:24px;">¥2599.00</span></p>
+<p style="margin-top:70px;margin-left:-100px;font-size:12px;">请您在 <span style="color:red;font-size:12px;" id="time">23小时59分59秒</span> 内完成支付，否则订单将自动取消。</p>
+<ul id="u1" style="float:left;margin-top:20px;">
+<li>订单编号： 11560061828</li>
+<li>收货信息：向子力&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;13487657137&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;湖南衡阳市珠晖区酃湖乡衡花路18号</li>
+<li>商品名称：荣耀10 AI摄影手机 6GB+64GB 幻影蓝 全网通 双卡双待 高配版</li>
+<li>发票信息：电子普通发票&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人</li>
+<li>购买时间：2018-06-24 14:20</li>
+</ul>
+</div>
+
+<div id="fk">
+<div style="width:170px;height:40px;border:1px solid rgb(204,204,204);border-bottom:0;float:left;margin-top:40px;margin-left:40px;" id="cy"><p style="margin-top:10px;margin-left:70px;">常用</p></div>
+<div style="width:170px;height:40px;background:rgb(242,242,242);border:1px solid rgb(204,204,204);float:left;margin-top:40px;margin-left:-1px;" id="pt"><p style="margin-top:10px;margin-left:60px;">平台支付</p></div>
+<div style="width:170px;height:40px;background:rgb(242,242,242);border:1px solid rgb(204,204,204);float:left;margin-top:40px;margin-left:-1px;" id="fq"><p style="margin-top:10px;margin-left:60px;">分期支付</p></div>
+<div style="width:170px;height:40px;background:rgb(242,242,242);border:1px solid rgb(204,204,204);float:left;margin-top:40px;margin-left:-1px;" id="wy"><p style="margin-top:10px;margin-left:60px;">网银支付</p></div>
+<div style="width:516px;height:40px;border:1px solid rgb(204,204,204);float:left;margin-top:41px;margin-left:-1px;border-right:0;border-top:0;"></div>
+<div style="height:260px;width:95%;border:1px solid rgb(204,204,204);border-top:0;margin-left:40px;float:left;" id="zf">
+
+<li id="zf1" style="display:block;">
+<div style="margin-left:80px;" id="fs1"><img src="imgs/ALIPAY.png" style="width:82.05px;height:30px;margin-left:80px;"/></div>
+<div id="fs2"><img src="imgs/WXPAY.png" style="width:109.7px;height:30px;"/></div>
+<div id="fs3"><img src="imgs/CMBLIFE.png"/></div>
+<div id="fs4"><img src="imgs/HUAWEIPAY.png"/></div>
+<div style="margin-left:80px;" id="fs5"><img src="imgs/HUABEI.png"/></div>
+</li>
+
+<li id="zf2" style="display:none;">
+<div style="margin-left:80px;" id="fs6"><img src="imgs/ALIPAY.png" style="width:82.05px;height:30px;margin-left:80px;"/></div>
+<div id="fs7"><img src="imgs/WXPAY.png" style="width:109.7px;height:30px;"/></div>
+</li>
+
+<li id="zf3" style="display:none;">
+<div style="margin-left:80px;" id="fs8"><img src="imgs/HUABEI.png"/></div>
+<div id="fs9"><img src="imgs/CMBLIFE.png"/></div>
+</li>
+
+<li id="zf4" style="display:none;">
+<div style="margin-left:80px;" id="fs10"><img src="imgs/HUAWEIPAY.png"/></div>
+</li>
+
+</div>
+
+</div>
+<a href="../../huawei-jhj/sure pay.html"><div style="float:left;background-color:rgb(202,20,29);color:white;width:175px;height:50px;border:1px solid;;border-radius:2px;margin-left:1000px;margin-top:20px;"><p style="color:white;margin:15px 51px;font-size:18px;">确认支付</p></div></a>
+
+    <div id="bq" style="margin-top:40px;">
+        <div class="bqContent">
+            <div class="bq_C_ul">
+                <ul>
+                    <li class="s1"><em></em><a href="hwsc.html">百强企业 品质保证</a></li>
+                    <li class="s2"><em></em><a href="hwsc.html">7天退货 15天换货</a></li>
+                    <li class="s3"><em></em><a href="hwsc.html">48元起免运费</a></li>
+                    <li class="s4"><em></em><a href="hwsc.html">448家维修网点 全国联保</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div id="xg">
+        <div class="xgContent">
+            <div class="xg_c_left">
+                <dl>
+                    <dt><em></em><br/><p>购物相关</p></dt>
+                    <dd>
+                        <ul>
+                            <li><a href="hwsc.html" target="-_blank">购物指南</a></li>
+                            <li><a href="hwsc.html" target="-_blank">配送方式</a></li>
+                            <li><a href="hwsc.html" target="-_blank">支付方式</a></li>
+                            <li><a href="hwsc.html" target="-_blank">常见问题</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><em></em><br/><p>保修与退换货</p></dt>
+                    <dd>
+                        <ul>
+                            <li><a href="hwsc.html" target="-_blank">保修政策</a></li>
+                            <li><a href="hwsc.html" target="-_blank">退换货政策</a></li>
+                            <li><a href="hwsc.html" target="-_blank">退换货流程</a></li>
+                            <li><a href="hwsc.html" target="-_blank">保修状态查询</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><em></em><br/><p>维修与技术支持</p></dt>
+                    <dd>
+                        <ul>
+                            <li><a href="zxy.html" target="-_blank">售后网点</a></li>
+                            <li><a href="zxy.html" target="-_blank">预约维修</a></li>
+                            <li><a href="zxy.html" target="-_blank">手机寄修</a></li>
+                            <li><a href="zxy.html" target="-_blank">维修配件价格查询</a></li>
+                            <li><a href="zxy.html" target="-_blank">上门服务</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><em></em><br/><p>关于我们</p></dt>
+                    <dd>
+                        <ul>
+                            <li><a href="zxy.html" target="-_blank">公司介绍</a></li>
+                            <li><a href="zxy.html" target="-_blank">华为商城简介</a></li>
+                            <li><a href="zxy.html" target="-_blank">华为线下门店</a></li>
+                            <li><a href="zxy.html" target="-_blank">荣耀线下门店</a></li>
+                            <li><a href="zxy.html" target="-_blank">诚征英才</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><em></em><br/><p>关注我们</p></dt>
+                    <dd>
+                        <ul>
+                            <li><a href="zxy.html" target="-_blank">新浪微博</a></li>
+                            <li><a href="zxy.html" target="-_blank">腾讯微博</a></li>
+                            <li><a href="zxy.html" target="-_blank">花粉俱乐部</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <em></em><br/>
+                        <p class="endp">友情链接</p>
+                        <p class="button">
+                            <span class="prev"> < </span>
+                            <span class="next"> > </span>
+                        </p>
+                    </dt>
+                    <dd>
+                        <ul>
+                            <li><a href="zxy.html" target="-_blank">华为官网</a></li>
+                            <li><a href="hwsc.html" target="-_blank">华为商城手机版</a></li>
+                            <li><a href="hwsc.html" target="-_blank">荣耀官网</a></li>
+                            <li><a href="zxy.html" target="-_blank">花粉俱乐部</a></li>
+                            <li><a href="zxy.html" target="-_blank">网站地图</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <div class="xg_c_right">
+                <dl>
+                    <dt><em></em><br/><p>400-088-6888</p><span>24小时客服热线（仅收市话费）</span></dt>
+                    <dd>
+                        <a href="zxy.html"><i></i>在线客服</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="fContent">
+            <p class="pimg"><a href="zxy.html"><img src="imgs/flogo.png" /></a></p>
+            <p>
+                <a href="a" target="_blank" title="隐私声明">隐私声明</a>
+                <a href="a" target="_blank" title="服务协议">服务协议</a>
+                Copyright © 2012-2018 华为软件技术有限公司 版权所有 保留一切权利<br/>
+                公安备案
+                <a href="zxy.html" target="_blank">苏公网安备32011402010009号 </a><em>|</em>
+                <a href="zxy.html" target="_blank">苏ICP备17040376号-6 </a><em>|</em>
+                增值电信业务经营许可证：苏B2-20130048号 <em>|</em><br/>
+                网络文化经营许可证：
+                <a href="zxy.html" target="_blank">苏网文[2015] 1599-026号</a>
+            </p>
+            <span>
+                <a href="zxy.html"><img src="imgs/20180522101715775.jpg" /></a>
+                <a href="zxy.html"><img src="imgs/20161224180914742.jpg" /></a>
+                <a href="zxy.html"><img src="imgs/20160226162415360.png" /></a>
+                <a href="zxy.html"><img src="imgs/20160226162521265.png" /></a>
+                <a href="zxy.html"><img src="imgs/20160226162531395.png" /></a>
+                <a href="zxy.html"><img src="imgs/20170725194955862.jpg" /></a>
+            </span>
+        </div>
+    </div>
+
+<script>
+var fs1=document.getElementById("fs1");
+var fs2=document.getElementById("fs2");
+var fs3=document.getElementById("fs3");
+var fs4=document.getElementById("fs4");
+var fs5=document.getElementById("fs5");
+var fs6=document.getElementById("fs6");
+var fs7=document.getElementById("fs7");
+var fs8=document.getElementById("fs8");
+var fs9=document.getElementById("fs9");
+var fs10=document.getElementById("fs10");
+fs1.onmousedown=function(){
+	fs1.style.borderColor="red";
+	fs2.style.borderColor="rgb(204,204,204)";
+	fs3.style.borderColor="rgb(204,204,204)";
+	fs4.style.borderColor="rgb(204,204,204)";
+	fs5.style.borderColor="rgb(204,204,204)";
+	}
+fs2.onmousedown=function(){
+	fs2.style.borderColor="red";
+	fs1.style.borderColor="rgb(204,204,204)";
+	fs3.style.borderColor="rgb(204,204,204)";
+	fs4.style.borderColor="rgb(204,204,204)";
+	fs5.style.borderColor="rgb(204,204,204)";
+	}
+fs3.onmousedown=function(){
+	fs3.style.borderColor="red";
+	fs1.style.borderColor="rgb(204,204,204)";
+	fs2.style.borderColor="rgb(204,204,204)";
+	fs4.style.borderColor="rgb(204,204,204)";
+	fs5.style.borderColor="rgb(204,204,204)";
+	}
+fs4.onmousedown=function(){
+	fs4.style.borderColor="red";
+	fs1.style.borderColor="rgb(204,204,204)";
+	fs3.style.borderColor="rgb(204,204,204)";
+	fs2.style.borderColor="rgb(204,204,204)";
+	fs5.style.borderColor="rgb(204,204,204)";
+	}
+fs5.onmousedown=function(){
+	fs5.style.borderColor="red";
+	fs1.style.borderColor="rgb(204,204,204)";
+	fs3.style.borderColor="rgb(204,204,204)";
+	fs4.style.borderColor="rgb(204,204,204)";
+	fs2.style.borderColor="rgb(204,204,204)";
+	}
+fs6.onmousedown=function(){
+	fs6.style.borderColor="red";
+	fs7.style.borderColor="rgb(204,204,204)";
+	}
+fs7.onmousedown=function(){
+	fs7.style.borderColor="red";
+	fs6.style.borderColor="rgb(204,204,204)";
+	}
+fs8.onmousedown=function(){
+	fs8.style.borderColor="red";
+	fs9.style.borderColor="rgb(204,204,204)";
+	}
+fs9.onmousedown=function(){
+	fs9.style.borderColor="red";
+	fs8.style.borderColor="rgb(204,204,204)";
+	}	
+fs10.onmousedown=function(){
+	fs10.style.borderColor="red";
+	}
+		
+var cy=document.getElementById("cy");
+var pt=document.getElementById("pt");
+var fq=document.getElementById("fq");
+var wy=document.getElementById("wy");
+var zf1=document.getElementById("zf1");
+var zf2=document.getElementById("zf2");
+var zf3=document.getElementById("zf3");
+var zf4=document.getElementById("zf4");
+pt.onmousedown=function(){
+	pt.style.backgroundColor='rgb(255,255,255)';
+	cy.style.backgroundColor='rgb(242,242,242)';
+	fq.style.backgroundColor='rgb(242,242,242)';
+	wy.style.backgroundColor='rgb(242,242,242)';
+	pt.style.borderBottom='0';
+	cy.style.borderBottom='1px solid rgb(204,204,204)';
+	fq.style.borderBottom='1px solid rgb(204,204,204)';
+	wy.style.borderBottom='1px solid rgb(204,204,204)';
+	zf1.style.display='none';
+	zf2.style.display='block';
+	zf3.style.display='none';
+	zf4.style.display='none';
+	}
+cy.onmousedown=function(){
+	cy.style.backgroundColor='rgb(255,255,255)';
+	pt.style.backgroundColor='rgb(242,242,242)';
+	fq.style.backgroundColor='rgb(242,242,242)';
+	wy.style.backgroundColor='rgb(242,242,242)';
+	cy.style.borderBottom='0';
+	pt.style.borderBottom='1px solid rgb(204,204,204)';
+	fq.style.borderBottom='1px solid rgb(204,204,204)';
+	wy.style.borderBottom='1px solid rgb(204,204,204)';
+	zf2.style.display='none';
+	zf1.style.display='block';
+	zf3.style.display='none';
+	zf4.style.display='none';
+	}
+fq.onmousedown=function(){
+	fq.style.backgroundColor='rgb(255,255,255)';
+	cy.style.backgroundColor='rgb(242,242,242)';
+	pt.style.backgroundColor='rgb(242,242,242)';
+	wy.style.backgroundColor='rgb(242,242,242)';
+	fq.style.borderBottom='0';
+	cy.style.borderBottom='1px solid rgb(204,204,204)';
+	pt.style.borderBottom='1px solid rgb(204,204,204)';
+	wy.style.borderBottom='1px solid rgb(204,204,204)';
+	zf1.style.display='none';
+	zf3.style.display='block';
+	zf2.style.display='none';
+	zf4.style.display='none';
+	}
+wy.onmousedown=function(){
+	wy.style.backgroundColor='rgb(255,255,255)';
+	cy.style.backgroundColor='rgb(242,242,242)';
+	fq.style.backgroundColor='rgb(242,242,242)';
+	pt.style.backgroundColor='rgb(242,242,242)';
+	wy.style.borderBottom='0';
+	cy.style.borderBottom='1px solid rgb(204,204,204)';
+	fq.style.borderBottom='1px solid rgb(204,204,204)';
+	pt.style.borderBottom='1px solid rgb(204,204,204)';
+	zf1.style.display='none';
+	zf4.style.display='block';
+	zf3.style.display='none';
+	zf2.style.display='none';
+	}
+
+var time=document.getElementById("time");
+var index=59;
+var fen=59;
+window.setInterval(function(){
+	index--;
+		if(index==0){
+		    index=59;
+		}
+	},1000);
+window.setInterval(function(){
+	fen--;
+		if(fen==0){
+		    index=59;
+		}
+	},59000);
+window.setInterval(function(){
+	time.innerHTML="<span style='color:red;font-size:12px;'>23小时"+fen+"分"+index+"秒</span>";
+	},1000);
+window.setInterval(function(){
+	time.innerHTML="<span style='color:red;font-size:12px;'>23小时"+fen+"分"+index+"秒</span>";
+	},59000);	
+</script>
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>确认订单华为商城</title>
+    <link rel="shortcut icon" href="../dl/img_ent_en_logo_ico.ico" />
+<style>
+*{
+    margin:0;
+    padding:0;
+    font-family: "微软雅黑";
+    font-size:14px;
+    font-style: normal;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+li{
+    list-style:none;
+}
+#header{
+    width: 100%;
+    height: 30px;
+    line-height:30px;
+    float: left;
+}
+.hC_left{
+    width: 60%;
+    height: 100%;
+    float: left;
+    position: relative;
+}
+.hC_left ul li,.hC_right ul li{
+    float: left;
+}
+.hC_left ul li a,.hC_right ul li a{
+    color: #A4A4A4;
+    font-size:12px;
+}
+.hC_left ul li a:hover,.hC_right ul li a:hover,#header #gdjc ul li a:hover{
+    color: #CA151D;
+}
+.hC_left ul em,.hC_right ul em{
+    float: left;
+    margin:0 8px;
+    color: #A4A4A4;
+}
+.hC_right .nli2{
+    margin-left:8px;
+}
+.hC_left ul li a i{
+    width: 10px;
+    height: 6px;
+    display: block;
+    float: right;
+    margin:10px 0 0 8px;
+    background: url("imgs/icon1.png") no-repeat 0px -76px;
+}
+.hC_right{
+    width: 40%;
+    height: 100%;
+    float: right;
+    position: relative;
+}
+.hC_right ul{
+    float: right;
+}
+.hC_right ul li a i{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right:8px;
+    background: url("imgs/icon-common.png") no-repeat 0 2px ;
+}
+
+
+#gdjc{
+    width: 165px;
+    height: 285px;
+    border:1px solid #EDEDED;
+    position: absolute;
+    right:79px;
+    top:30px;
+    background: #fff;
+    display: none;
+    z-index: 5;
+}
+#header #gdjc ul{
+    width: 100%;
+    height: 140px;
+    text-align: center;
+}
+#header #gdjc ul li{
+    width: 100%;
+    height: 25%;
+}
+#header #gdjc ul li a{
+    color: #3A3A3A;
+
+}
+#header #gdjc ol{
+    width: 95%;
+    height: 144px;
+    margin:auto;
+    text-align: center;
+    border-top:1px solid #EAEAEA;
+}
+#header #gdjc ol span{
+    width: 100%;
+    height: 100px;
+    display: inline-block;
+}
+#header #gdjc ol span i{
+    width: 76px;
+    height: 76px;
+    display: inline-block;
+    margin-top:20px;
+    background: url("imgs/qrcode_vmall_new_app01.png");
+}
+#header #gdjc ol p{
+    color: #3A3A3A;
+    font-size: 12px;
+}
+
+#gwc{
+    width: 460px;
+    height: 230px;
+    background: #fff;
+    position: absolute;
+    top: 30px;
+    right:0;
+    display: none;
+    z-index: 5;
+    box-shadow: 0 0 10px 5px #EDEDED;
+}
+#gwc dl{
+    width: 220px;
+    height: 140px;
+    text-align: center;
+    margin:50px auto;
+}
+#gwc dl dt{
+    width: 100px;
+    height: 100px;
+    line-height:100px;
+    border-radius: 50px;
+    margin:auto;
+    background: #F4F4F4;
+}
+#gwc dl dt img{
+    margin-top:25px;
+}
+#gwc dl dd{
+    color: #A4A4A4;
+    margin-top:10px;
+}
+
+#nav {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    float: left;
+}
+.nClogo{
+    width: 22%;
+    height: 50px;
+    margin-top:10px;
+    float: left;
+}
+#hddd{
+	float:right;
+	height:50px;
+	width:250px;
+	background:url(imgs/sprites6.8c58970.png);
+	background-position:-174px -150px;
+	position:relative;
+	left:-100px;
+	top:-50px;
+	}
+#ry10{
+	background-color:white;
+	width:95%;
+	height:460px;
+	float:left;
+	margin-left:40px;
+	margin-top:40px;
+	}
+#xx{
+	width:760px;
+	height:245px;
+	float:left;
+	border:1px solid rgb(240,240,240);
+	margin-left:40px;
+	margin-top:-1px;
+	}
+	
+#bq{
+    width: 100%;
+    height: 140px;
+    float: left;
+    background: #f0f0f0;
+}
+.bqContent, .xgContent,.fContent{
+    width: 94%;
+    height: 100%;
+    margin:auto;
+}
+.bqContent, .xgContent{
+    border-top:1px solid #E8E8E8;
+}
+.bqContent .bq_C_ul ul{
+    width: 100%;
+    height: 47px;
+    float: left;
+    line-height:47px;
+    margin-top:50px;
+}
+.bqContent .bq_C_ul ul li{
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+.bqContent .bq_C_ul ul li a{
+    width: 200px;
+    height: 22px;
+    margin-left:15px;
+    color: #333;
+    font-size:18px;
+    display: inline-block;
+
+}
+.bqContent .bq_C_ul ul li em{
+    width: 47px;
+    height: 48px;
+    float: left;
+    display: inline-block;
+}
+.bqContent .bq_C_ul .s1 em{
+    background: url("imgs/icon-common.png") no-repeat 0px -150px;
+}
+.bqContent .bq_C_ul .s2 em{
+    background: url("imgs/icon-common.png") no-repeat -94px -150px;
+}
+.bqContent .bq_C_ul .s3 em{
+    background: url("imgs/icon-common.png") no-repeat -141px -150px;
+}
+.bqContent .bq_C_ul .s4 em{
+    background: url("imgs/icon-common.png") no-repeat -47px -150px;
+}
+
+
+#xg{
+    width: 100%;
+    height: 217px;
+    float: left;
+    background: #F0F0F0;
+}
+.xg_c_left{
+    width: 75%;
+    height: 100%;
+    float: left;
+}
+.xg_c_left dl{
+    width: 16.6%;
+    height: 190px;
+    float: left;
+    margin-top:30px;
+}
+.xg_c_left dl dt{
+    width: 100%;
+    height: 47px;
+}
+.xg_c_left dl dt em, .xg_c_right dl dt em{
+    width: 25px;
+    height: 2px;
+    float: left;
+    display: inline-block;
+    background: #A8A8A8;
+}
+.xg_c_left dl dt p{
+    color: #3a3a3a;
+}
+.xg_c_left dl dd li{
+    width: 100%;
+    height: 24px;
+    line-height:24px;
+}
+.xg_c_left dl dd li a{
+    color: #333;
+    font-size:12px;
+}
+.xg_c_left dl dd li a:hover{
+    color: #CA141D;
+}
+.xg_c_left .endp{
+    width: 60px;
+    height: 17px;
+    float: left;
+    display: inline-block;
+}
+.xg_c_left .button{
+    width: 32px;
+    height: 17px;
+    float: left;
+}
+.xg_c_left .button span{
+    width: 14px;
+    height: 14px;
+    display: block;
+    line-height: 14px;
+    text-align: center;
+    margin-right:2px;
+    border-radius: 3px;
+    margin-top:3px;
+    float: left;
+    background: #B3B3B3;
+}
+.xg_c_left .button span:hover{
+    cursor: pointer;
+}
+.xg_c_right{
+    width: 25%;
+    height: 100%;
+    float: right;
+}
+.xg_c_right dl{
+    width: 171px;
+    height: 123px;
+    margin:30px auto;
+}
+.xg_c_right dl dt p{
+    width: 100%;
+    height: 36px;
+    font-size:24px;
+    color: #000;
+}
+.xg_c_right dl dt span{
+    font-size:12px;
+}
+.xg_c_right dd{
+    width: 163px;
+    height: 37px;
+    margin-top:10px;
+    background: #fff;
+    text-align: center;
+    /*line-height:37px;*/
+    border-radius: 5px;
+    border:1px solid #DDDDDD;
+}
+.xg_c_right dd a{
+    width: 100px;
+    height: 23px;
+    line-height:30px;
+    display: inline-block;
+    color: #9A0000;
+    padding:5px 0 0 10px;
+    background: url("imgs/icon-common.png") no-repeat -101px -12px ;
+
+
+}
+
+#footer{
+    width: 100%;
+    height: 121px;
+    float: left;
+    background: #E6E6E6;
+}
+.fContent .pimg{
+    width: 117px;
+    height: 36px;
+    margin-top:55px;
+    display: inline-block;
+    float: left;
+}
+.fContent p{
+    width: 629px;
+    height: 20px;
+    float: left;
+    color: #a4a4a4;
+    font-size:12px;
+    margin-top:40px;
+}
+.fContent p a{
+    color: #a4a4a4;
+    font-size:12px;
+}
+.fContent p a:hover{
+    color: #CA151D;
+}
+.fContent span{
+    width: 444px;
+    height: 39px;
+    float: right;
+}
+.fContent span img{
+    width: 70px;
+    height: 24px;
+    margin-top:-7px;
+}
+
+</style>
+</head>
+<body>
+    <div id="header">
+        <div class="hContent">
+            <div class="hC_left">
+                <ul style="margin-left:40px;">
+                    <li><a href="../../huawei-ljx/hwsc.html">首页</a></li><em>|</em>
+                    <li><a href="../华为官网/shouye.html">华为官网</a></li><em>|</em>
+                    <li><a href="">荣耀官网</a></li><em>|</em>
+                    <li><a href="">花粉俱乐部</a></li><em>|</em>
+                    <li><a href="">帮助中心</a></li><em>|</em>
+                    <li><a href="">V码(优购码)</a></li><em>|</em>
+                    <li><a href="">企业购</a></li><em>|</em>
+                    <li><a href="">Select Region</a></li><em>|</em>
+                    <li id="more"><a href="">更多精彩<i></i></a></li>
+                </ul>
+                <div id="gdjc">
+                    <ul class="gdjc_top">
+                        <li><a href="">EMUI</a></li>
+                        <li><a href="">应用市场</a></li>
+                        <li><a href="">华为终端云空间</a></li>
+                        <li><a href="">开发者联盟</a></li>
+                    </ul>
+                    <ol class="gdjc_bottom">
+                        <span><i></i></span>
+                        <p>扫一扫下载客户端</p>
+                    </ol>
+                </div>
+            </div>
+
+
+            <div class="hC_right">
+                <ul style="margin-right:40px;">
+                    <li><a href="">315348764@qq.com</a></li>
+
+                    <li><a href="../../huawei-ljx/wddd1.html">我的订单</a></li><em>|</em>
+                    <li class="gwcli"><a href="../../huawei-ljx/gouwuche.html"><i></i>购物车(<span>0</span>)</a></li>
+                </ul>
+                <div id="gwc">
+                    <dl>
+                        <dt><img src="imgs/2018-06-10_132226.png"/></dt>
+                        <dd>您的购物车是空的，赶紧选购吧~</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="nav">
+        <div class="nContent">
+            <div class="nClogo">
+                <a href="../../huawei-ljx/hwsc.html" title="Vmall.com-华为商城"><img src="imgs/20170703105852645577.png" style="margin-left:40px;"/></a>
+            </div>
+        </div>
+    </div>
+<p style="font-size:22px;float:left;margin-left:170px;margin-top:-50px;">确认订单</p>
+<div id="hddd"></div>
+<div style="width:100%;height:1050px;background-color:rgb(240,240,240);float:left;margin-top:-43px;">
+<div style="background-color:white;width:95%;height:230px;position:relative;top:20px;left:40px;">
+<p style="font-size:18px;padding-left:40px;position:relative;top:30px;">收货地址</p>
+<img src="imgs/QQ图片20180622201927.png" style="float:left;margin-top:40px;margin-left:35px;"/>
+<a href=""><img src="imgs/QQ图片20180622202314.png" style="float:left;margin-top:40px;margin-left:10px;"/></a>
+</div>
+<div id="ry10">
+<div style="width:760px;height:143px;border:1px solid rgb(240,240,240);margin-left:40px;margin-top:40px;">
+<img src="imgs/142_142_1523952379540mp.jpg" style="width:100px;height:100px;margin-top:20px;margin-left:20px;"/>
+<p style="margin-top:-100px;margin-left:140px;">荣耀10 AI摄影手机 6GB+64GB 幻影蓝 全网通 双卡双待 </p>
+<p style="margin-left:140px;">高配版</p>
+<p style="margin-top:-38px;margin-left:540px;">x1</p>
+<p style="margin-top:-20px;margin-left:640px;">¥ 2599.00</p>
+</div>
+<div id="xx">
+<p style="font-size:18px;margin:40px 40px;">发票信息</p>
+<p style="font-size:18px;margin-left:40px;">优惠与抵用</p>
+<p style="color:rgb(153,153,153);font-size:12px;margin-left:150px;margin-top:-85px;">注：如果商品由第三方卖家销售，发票内容由其卖家决定，发票由卖家开具并寄出</p>
+<p style="margin-left:150px;margin-top:15px;">电子普通发票</p>
+<p style="margin-left:260px;margin-top:-20px;">个人</p>
+<p style="color:rgb(153,153,153);margin-left:310px;margin-top:-20px;text-decoration:underline;">修改</p>
+<p style="color:rgb(153,153,153);margin-left:150px;margin-top:17px;font-size:12px;">仅适用于自营实物商品</p>
+<div style="background-image:url(imgs/icon-order.png);background-position:0 -84px;float:left;width:23px;height:15px;margin-top:20px;margin-left:150px;"></div>
+<p style="color:red;text-decoration:underline;margin-top:17px;margin-left:200px;">使用优惠券</p>
+<p style="margin-top:17px;margin-left:150px;">积分余额0，不足100不可使用</p>
+<p style="margin-top:10px;margin-left:150px;">花瓣余额0，不足100不可使用</p>
+<p style="margin-top:-46px;margin-left:350px;color:rgb(153,153,153);font-size:12px;text-decoration:underline;">积分使用规则</p>
+<p style="margin-top:12px;margin-left:350px;color:rgb(153,153,153);font-size:12px;text-decoration:underline;">花瓣使用规则</p>
+</div>
+<div style="width:360px;height:391px;background-color:rgb(240,240,240);float:left;margin-top:-145px;">
+<p style="font-size:18px;margin-top:40px;margin-left:40px;">商品由<a href="../../huawei-ljx/hwsc.html" style="color:red;font-size:18px;"> 华为商城 </a>选择合作快递</p>
+<p style="margin-top:200px;margin-left:180px;">商品总金额：</p>
+<p style="margin-top:10px;margin-left:180px;">运费：</p>
+<p style="margin-top:10px;margin-left:180px;">优惠金额：	</p>
+<p style="margin-top:10px;margin-left:180px;">结算金额：</p>
+<p style="margin-top:-105px;margin-left:275px;">¥2599.00</p>
+<p style="margin-top:10px;margin-left:300px;">¥0.00</p>
+<p style="margin-top:10px;margin-left:294px;">-¥0.00</p>
+<p style="margin-top:5px;margin-left:250px;color:red;font-size:20px;">¥2599.00</p>
+</div>
+</div>
+<div style="width:95%;height:270px;background-color:white;float:left;margin:10px 40px;">
+<p style="font-size:18px;margin-left:915px;margin-top:40px;">应付总额：<span style="font-size:32px;color:red;font-weight:bold;">¥2599.00</span></p>
+<img src="imgs/QQ图片20180622214415.png" style="margin-left:860px;margin-top:40px;"/>
+<a href="../tijiaodingdan/tjdd.html"><div style="background-color:rgb(202,20,29);color:white;width:175px;height:50px;border:1px solid;;border-radius:2px;margin-left:980px;margin-top:10px;"><p style="color:white;margin:15px 51px;font-size:18px;">提交订单</p></div></a>
+</div>
+</div>
+    <div id="bq">
+        <div class="bqContent">
+            <div class="bq_C_ul">
+                <ul>
+                    <li class="s1"><em></em><a href="hwsc.html">百强企业 品质保证</a></li>
+                    <li class="s2"><em></em><a href="hwsc.html">7天退货 15天换货</a></li>
+                    <li class="s3"><em></em><a href="hwsc.html">48元起免运费</a></li>
+                    <li class="s4"><em></em><a href="hwsc.html">448家维修网点 全国联保</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div id="xg">
+        <div class="xgContent">
+            <div class="xg_c_left">
+                <dl>
+                    <dt><em></em><br/><p>购物相关</p></dt>
+                    <dd>
+                        <ul>
+                            <li><a href="hwsc.html" target="-_blank">购物指南</a></li>
+                            <li><a href="hwsc.html" target="-_blank">配送方式</a></li>
+                            <li><a href="hwsc.html" target="-_blank">支付方式</a></li>
+                            <li><a href="hwsc.html" target="-_blank">常见问题</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><em></em><br/><p>保修与退换货</p></dt>
+                    <dd>
+                        <ul>
+                            <li><a href="hwsc.html" target="-_blank">保修政策</a></li>
+                            <li><a href="hwsc.html" target="-_blank">退换货政策</a></li>
+                            <li><a href="hwsc.html" target="-_blank">退换货流程</a></li>
+                            <li><a href="hwsc.html" target="-_blank">保修状态查询</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><em></em><br/><p>维修与技术支持</p></dt>
+                    <dd>
+                        <ul>
+                            <li><a href="zxy.html" target="-_blank">售后网点</a></li>
+                            <li><a href="zxy.html" target="-_blank">预约维修</a></li>
+                            <li><a href="zxy.html" target="-_blank">手机寄修</a></li>
+                            <li><a href="zxy.html" target="-_blank">维修配件价格查询</a></li>
+                            <li><a href="zxy.html" target="-_blank">上门服务</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><em></em><br/><p>关于我们</p></dt>
+                    <dd>
+                        <ul>
+                            <li><a href="zxy.html" target="-_blank">公司介绍</a></li>
+                            <li><a href="zxy.html" target="-_blank">华为商城简介</a></li>
+                            <li><a href="zxy.html" target="-_blank">华为线下门店</a></li>
+                            <li><a href="zxy.html" target="-_blank">荣耀线下门店</a></li>
+                            <li><a href="zxy.html" target="-_blank">诚征英才</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt><em></em><br/><p>关注我们</p></dt>
+                    <dd>
+                        <ul>
+                            <li><a href="zxy.html" target="-_blank">新浪微博</a></li>
+                            <li><a href="zxy.html" target="-_blank">腾讯微博</a></li>
+                            <li><a href="zxy.html" target="-_blank">花粉俱乐部</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>
+                        <em></em><br/>
+                        <p class="endp">友情链接</p>
+                        <p class="button">
+                            <span class="prev"> < </span>
+                            <span class="next"> > </span>
+                        </p>
+                    </dt>
+                    <dd>
+                        <ul>
+                            <li><a href="zxy.html" target="-_blank">华为官网</a></li>
+                            <li><a href="hwsc.html" target="-_blank">华为商城手机版</a></li>
+                            <li><a href="hwsc.html" target="-_blank">荣耀官网</a></li>
+                            <li><a href="zxy.html" target="-_blank">花粉俱乐部</a></li>
+                            <li><a href="zxy.html" target="-_blank">网站地图</a></li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+            <div class="xg_c_right">
+                <dl>
+                    <dt><em></em><br/><p>400-088-6888</p><span>24小时客服热线（仅收市话费）</span></dt>
+                    <dd>
+                        <a href="zxy.html"><i></i>在线客服</a>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="fContent">
+            <p class="pimg"><a href="zxy.html"><img src="imgs/flogo.png" /></a></p>
+            <p>
+                <a href="a" target="_blank" title="隐私声明">隐私声明</a>
+                <a href="a" target="_blank" title="服务协议">服务协议</a>
+                Copyright © 2012-2018 华为软件技术有限公司 版权所有 保留一切权利<br/>
+                公安备案
+                <a href="zxy.html" target="_blank">苏公网安备32011402010009号 </a><em>|</em>
+                <a href="zxy.html" target="_blank">苏ICP备17040376号-6 </a><em>|</em>
+                增值电信业务经营许可证：苏B2-20130048号 <em>|</em><br/>
+                网络文化经营许可证：
+                <a href="zxy.html" target="_blank">苏网文[2015] 1599-026号</a>
+            </p>
+            <span>
+                <a href="zxy.html"><img src="imgs/20180522101715775.jpg" /></a>
+                <a href="zxy.html"><img src="imgs/20161224180914742.jpg" /></a>
+                <a href="zxy.html"><img src="imgs/20160226162415360.png" /></a>
+                <a href="zxy.html"><img src="imgs/20160226162521265.png" /></a>
+                <a href="zxy.html"><img src="imgs/20160226162531395.png" /></a>
+                <a href="zxy.html"><img src="imgs/20170725194955862.jpg" /></a>
+            </span>
+        </div>
+    </div>
+
+</body>
+</html>

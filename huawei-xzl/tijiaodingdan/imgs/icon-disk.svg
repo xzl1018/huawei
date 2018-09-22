@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon/48/_存储</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="symbol" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/48/_存储">
+            <g id="Icon/模板" stroke="#E41F2B" opacity="0">
+                <g id="Group-2-Copy">
+                    <g id="Group-100" opacity="0.15" stroke-width="0.5" stroke-linecap="square">
+                        <path d="M0,0 L48,48 M48,0 L0,48" id="Diagonal"></path>
+                        <path d="M2.49375,0 L2.49375,48 M14.90625,0 L14.90625,48 M24,0 L24,48 M33.09375,0 L33.09375,48 M45.49375,0 L45.49375,48" id="Vertical"></path>
+                        <path d="M2.5,0 L2.5,48 M14.9125,0 L14.9125,48 M24.00625,0 L24.00625,48 M33.1,0 L33.1,48 M45.5,0 L45.5,48" id="Vertical" transform="translate(24.000000, 24.000000) rotate(-270.000000) translate(-24.000000, -24.000000) "></path>
+                    </g>
+                    <g id="Group" transform="translate(2.400000, 2.400000)" stroke-width="0.5" opacity="0.300000012">
+                        <rect id="Rectangle-46-Copy-2" transform="translate(21.600000, 21.600000) rotate(-270.000000) translate(-21.600000, -21.600000) " x="5.85" y="0.25" width="31.5" height="42.7" rx="7.11111111"></rect>
+                        <rect id="Rectangle-46-Copy-2" transform="translate(21.600000, 21.600000) rotate(-270.000000) translate(-21.600000, -21.600000) " x="3.05" y="3.05" width="37.1" height="37.1" rx="7.11111111"></rect>
+                        <circle id="Oval-27" cx="21.6" cy="21.6" r="21.35"></circle>
+                        <circle id="Oval-27" cx="21.6" cy="21.6" r="8.95"></circle>
+                        <rect id="Rectangle-46-Copy" x="5.85" y="0.25" width="31.5" height="42.7" rx="7.11111111"></rect>
+                    </g>
+                </g>
+            </g>
+            <g id="Group" transform="translate(6.000000, 3.000000)">
+                <path d="M18.500382,1.58517348 C18.1958429,1.41375828 17.8239119,1.41375828 17.5193728,1.58517348 L1.52718048,10.5866612 C1.21272752,10.7636566 1.01801823,11.0963344 1.0176855,11.4571777 L1.00008717,30.5421919 C0.999753825,30.9036951 1.19455418,31.2372335 1.50958214,31.4145526 L17.499618,40.4148265 C17.8041571,40.5862417 18.1760881,40.5862417 18.4806272,40.4148265 L34.4728195,31.4133388 C34.7872725,31.2363434 34.9819818,30.9036656 34.9823145,30.5428223 L34.9999128,11.4578081 C35.0002462,11.0963049 34.8054458,10.7627665 34.4904179,10.5854474 L18.500382,1.58517348 Z" id="Polygon-Copy" stroke="#252B3A" stroke-width="2"></path>
+                <path d="M18,35.4951849 L18,21.4951849" id="Line-5" stroke="#252B3A" stroke-linecap="square"></path>
+                <path d="M17.6610346,20.9144396 L5.66069242,13.7039066" id="Line-5-Copy" stroke="#252B3A" stroke-linecap="square"></path>
+                <path d="M30.4888621,20.9144396 L18.4885199,13.7039066" id="Line-5-Copy" stroke="#252B3A" stroke-linecap="square" transform="translate(24.488691, 17.309173) scale(-1, 1) translate(-24.488691, -17.309173) "></path>
+                <circle id="Oval" fill="#E41F2B" cx="18" cy="21" r="2"></circle>
+                <circle id="Oval-Copy" fill="#212633" cx="5.28892682" cy="13.6512363" r="1"></circle>
+                <circle id="Oval-Copy-2" fill="#212633" cx="30.9190501" cy="13.6512363" r="1"></circle>
+                <circle id="Oval-Copy-3" fill="#212633" cx="18" cy="36.0531673" r="1"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

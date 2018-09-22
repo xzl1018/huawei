@@ -1,0 +1,417 @@
+_satellite.pushBlockingScript(function(event, target, $variables){
+  window.hwAnalytics = window.hwAnalytics || {};
+//cookiePlugin
+(function(d,f){"use strict";var h=function(d){if("object"!==typeof d.document)throw Error("Cookies.js requires a `window` with a `document` object");var b=function(a,e,c){return 1===arguments.length?b.get(a):b.set(a,e,c)};b._document=d.document;b._cacheKeyPrefix="cookey.";b._maxExpireDate=new Date("Fri, 31 Dec 9999 23:59:59 UTC");b.defaults={path:"/",secure:!1};b.get=function(a){b._cachedDocumentCookie!==b._document.cookie&&b._renewCache();a=b._cache[b._cacheKeyPrefix+a];return a===f?f:decodeURIComponent(a)};
+b.set=function(a,e,c){c=b._getExtendedOptions(c);c.expires=b._getExpiresDate(e===f?-1:c.expires);b._document.cookie=b._generateCookieString(a,e,c);return b};b.expire=function(a,e){return b.set(a,f,e)};b._getExtendedOptions=function(a){return{path:a&&a.path||b.defaults.path,domain:a&&a.domain||b.defaults.domain,expires:a&&a.expires||b.defaults.expires,secure:a&&a.secure!==f?a.secure:b.defaults.secure}};b._isValidDate=function(a){return"[object Date]"===Object.prototype.toString.call(a)&&!isNaN(a.getTime())};
+b._getExpiresDate=function(a,e){e=e||new Date;"number"===typeof a?a=Infinity===a?b._maxExpireDate:new Date(e.getTime()+1E3*a):"string"===typeof a&&(a=new Date(a));if(a&&!b._isValidDate(a))throw Error("`expires` parameter cannot be converted to a valid Date instance");return a};b._generateCookieString=function(a,b,c){a=a.replace(/[^#$&+\^`|]/g,encodeURIComponent);a=a.replace(/\(/g,"%28").replace(/\)/g,"%29");b=(b+"").replace(/[^!#$&-+\--:<-\[\]-~]/g,encodeURIComponent);c=c||{};a=a+"="+b+(c.path?";path="+
+c.path:"");a+=c.domain?";domain="+c.domain:"";a+=c.expires?";expires="+c.expires.toUTCString():"";return a+=c.secure?";secure":""};b._getCacheFromString=function(a){var e={};a=a?a.split("; "):[];for(var c=0;c<a.length;c++){var d=b._getKeyValuePairFromCookieString(a[c]);e[b._cacheKeyPrefix+d.key]===f&&(e[b._cacheKeyPrefix+d.key]=d.value)}return e};b._getKeyValuePairFromCookieString=function(a){var b=a.indexOf("="),b=0>b?a.length:b,c=a.substr(0,b),d;try{d=decodeURIComponent(c)}catch(k){console&&"function"===
+typeof console.error&&console.error('Could not decode cookie with key "'+c+'"',k)}return{key:d,value:a.substr(b+1)}};b._renewCache=function(){b._cache=b._getCacheFromString(b._document.cookie);b._cachedDocumentCookie=b._document.cookie};b._areEnabled=function(){var a="1"===b.set("cookies.js",1).get("cookies.js");b.expire("cookies.js");return a};b.enabled=b._areEnabled();return b},g=d&&"object"===typeof d.document?h(d):h;"function"===typeof define&&define.amd?define(function(){return g}):"object"===
+typeof exports?("object"===typeof module&&"object"===typeof module.exports&&(exports=module.exports=g),exports.Cookies=g):d.Cookies=g})("undefined"===typeof window?this:window);
+Cookies.defaults = {
+    path: '/',
+  	expires: 1800
+};
+//setPreviousPageName
+if (typeof(_satellite) !== "undefined") {
+	var prevPageName = Cookies.get('pagename'),
+  	currentPageName = _satellite.getVar('content:page name');
+    
+  Cookies.set('prevpagename',prevPageName);
+  Cookies.set('pagename',currentPageName);
+}
+//setScrollPosition
+window.hwAnalytics.updateScrollPos = function(){
+	try {
+		var s = $(window).scrollTop(),
+			d = $(document).height(),
+			c = $(window).height(),
+			scrollPercent = 0,
+			prevScrollPercent = Cookies.get('scrollPercentage') || 0;
+		
+    scrollPercent = Math.round((s+c)*100/d);
+		if(scrollPercent>100) {
+			scrollPercent = 100;	
+		}
+		
+		Cookies.set('scrollPercentage',Math.max(scrollPercent,prevScrollPercent));
+	} catch (err){
+
+	}
+}
+$(document).on('scroll',window.hwAnalytics.updateScrollPos);
+try {
+	var prevScrollPercent = Cookies.get('scrollPercentage');
+  Cookies.set('prevScrollPercentage',prevScrollPercent);
+  Cookies.set('scrollPercentage',0);
+} catch (err) {
+}
+//setPreviousPageTime
+try {
+	var time = Cookies.get('starttime');
+  if(time) {
+  	Cookies.set('prevpagetime',Math.round((Date.now()-time)/1000)); 
+  }
+} catch (err){
+}
+/*
+// set visitor api
+$(function(){
+	var visitor = Visitor.getInstance('7DA25C0158C1322D0A495DB1@AdobeOrg');
+	var mppingId = _satellite.getVar('membership:mapping id');
+	if(mppingId) {
+     console.log("has mppingId==>"+mppingId);
+		_satellite.setCookie('mppingId',mppingId,7);
+	} else {
+     console.log("get from cookie mppingId==>"+mppingId);
+		mppingId = _satellite.readCookie('mppingId');
+	}
+
+	if(mppingId && visitor) {
+		visitor.setCustomerIDs({
+			"AdobeCampaignID":{ // integration code
+				"id":mppingId,
+				"authState":Visitor.AuthState.AUTHENTICATED
+			}
+		});
+	}
+});
+
+// set visitor api for logged in users by binding uid
+$(function(){
+	var visitor = Visitor.getInstance('7DA25C0158C1322D0A495DB1@AdobeOrg');
+	var uid = Cookies.get('uid');
+	if(uid && visitor) {
+    console.log("uid is: "+uid);
+		visitor.setCustomerIDs({
+			"AdobeCampaignID":{ // integration code
+				"id":uid,
+				"authState":Visitor.AuthState.AUTHENTICATED
+			}
+		});
+	}
+});
+*/
+//setupDirectCallRules
+$(function(){
+  $(document).on('comparisonFilter',function(){
+    _satellite.track('content:product comparison');
+  });
+  $(document).on('videoClosed',function(){
+    _satellite.track('content:video closed');
+  });
+  $(document).on('pureSearch',function(){
+	var results = _satellite.getVar('search:number of results');
+	if(results=='zero'||results==0) {
+		_satellite.track('search:results returned zero');
+	} else {
+		_satellite.track('search:results returned');
+	}
+  });
+  $(document).on('pressNewsListSearch',function(){
+	var results = _satellite.getVar('%search:press number of results%');
+	if(results=='zero'||results==0) {
+		_satellite.track('search:press results returned zero');
+	} else {
+		_satellite.track('search:press results returned');
+	}
+  });
+  $(document).on('pressNewsList',function(){
+	_satellite.track('search:press filter selected');
+  });
+  //search result is clicked
+  $(document).on('homepageSiteSearchClick',function(){
+	_satellite.track('search:homepageSite results clicked');
+  });
+  $(document).on('searchByDropdownFilter',function(){
+	var type = DataLayerUtil.getEvent('searchByDropdownFilter','lab');
+	if(type=='Autosuggest') {
+		_satellite.track('search:autosuggest results returned');
+	} else {
+		var results = _satellite.getVar('search:filter number of results');
+		if(results=='zero'||results==0) {
+			_satellite.track('search:filter selected returned zero');
+		} else {
+			_satellite.track('search:filter selected');
+		}
+	}
+  });
+  $(document).on('searchRecyclingPoint',function(){
+    _satellite.track('support:recycling point search');
+  });
+  $(document).on('contactUsTechnical',function(){
+    _satellite.track('contact-us:email us form submit');
+  });
+  $(document).on('contactUsFeedback',function(){
+    _satellite.track('contact-us:feedback form submit');
+  });
+  $(document).on('contactUsHotline',function(){
+    _satellite.track('contact-us:hotline click');
+  });
+  $(document).on('m2mDistributor',function(){
+    _satellite.track('contact-us:distributor click');
+  });
+  $(document).on('storeFinderSubmit',function(){
+    _satellite.track('contact-us:store finder submit');
+  });
+  $(document).on('supportSparepartPrice',function(){
+    _satellite.track('support:spare parts request');
+  });
+  $(document).on('submitFindServiceByCountryCity',function(){
+    _satellite.track('support:service store request');
+  });
+  $(document).on('submitFindServiceByAddressDistance',function(){
+    _satellite.track('support:service store request by distance');
+  });
+  $(document).on('supportPdpDropdown',function(){
+    _satellite.track('support:faq dropdown click');
+  });
+  $(document).on('autoSuggestSearch',function(){
+    _satellite.track('search:hotsearch results returned');
+  });
+  $(document).on('SupportSearch',function(){
+	var results = _satellite.getVar('support:number of results');
+	if(results=='0'||results=='zero') {
+		_satellite.track('support:results returned zero');
+	} else {
+		_satellite.track('support:results returned');
+	}
+  });
+  $(document).on('emailSubSuccess',function(){
+    _satellite.track('newsletter:signup');
+  });
+  $(document).on('emailSubFail',function(){
+    _satellite.track('newsletter:form error');
+  });
+  $(document).on('openMenuFirstLevel',function(){
+    if(window.fireRule) {
+		_satellite.track('content:dynamic menu');
+	}
+  });
+  $(document).on('openMenuSecondLevel',function(){
+	if(window.fireRule) {
+		_satellite.track('content:dynamic menu explore');
+	}
+  });
+  
+ //support v2
+if(window.hwPageType=="support-v2"){
+    var supportV2Selector=".login-menu .login-menu-contaner .login-menu-list a,.my-services-component .service-operate .data-bak,.my-services-component .service-operate .pre-detail,.search-banner-component .suggested-list a,.search-result-component .relation-service .service-title,.search-result-component .relation-notice ul li a,.search-result-component .relation-product ul li a,.search-result-component .search-result-content ul li,.knowledge-search-component .knowledge-list li a,.card-grid-component-support ul li,.card-grid-component-support a,.breakdown-question-list a,.hot-question-list a,.faq-tap-list-component a,.card-grid-component-repair a,.popup-productlist-component .soft-list a,.hot-knowledge-component .support-skill-index a,.card-grid-component .support-recommend-index a,.lastest-notice-list-component .support-notice-index a,.product-kv-component .product-doc a,.newbie-guide-component .product-learn a,.hot-knowledge-component .product-skill a,.faq-tap-list-component .product-question-list a,.product-kv-component .attachment-container a,.express-repair-service-component .s-service-list a,.express-repair-service-component .s-service-button a,.express-application .change-product-link a,.express-application .query-price-link a,.express-application .add-contact-link a,.express-application .more-address-link a,.express-application .more-service-link a,.express-application .s-readed label,.express-application .s-readed a,.express-application .problem-list a,.express-application .problem-suggest a,.express-repair-service-component .s-service-list a,.express-repair-service-component .s-service-button a,.reservation-application .change-product-link a,.reservation-application .query-price-link a,.reservation-application .add-contact-link a,.reservation-application .more-address-link,.reservation-application .s-readed label,.reservation-application .s-readed a,.reservation-application .problem-list a,.reservation-application .problem-suggest a,.reservation-application .icon-location,.reservation-application .point-route,.express-repair-service-component .s-service-list a,.express-repair-service-component .s-service-button a,.inquiry-component .s-query-result-item .s-item-opera a,.server-center-component .point-list ul li,.server-center-component .search-box .icon-location,.server-center-component .search-box .check-service,.server-center-component .point-list .point-route,.server-center-component .point-list .point-service a,.contact-us-component .contact a,.popup-productlist-component .product-list li a,.search-result-component .search-result-content ul li a";
+
+    $(document).on('click',supportV2Selector,function(e){
+        if($(this).attr('cat')){
+            var lab =  $(this).attr('lab') ? getContent($(this).attr('lab')):'Error: Not Maintain Value'
+            var act =  $(this).attr('act') ? getContent($(this).attr('act')):'Error: Not Maintain Value'       
+            var cat =  $(this).attr('cat') ? getContent($(this).attr('cat')):'Error: Not Maintain Value'        
+            analyticsSubmit(cat,act,lab,"commonClick");       
+        }
+    });
+  
+$(".contact-us-component .contact a,.express-repair-service-component .s-service-button a,.need-service-module ul li a,.menu menu_cn ul li a,.warranty-content .warm a,.menu .login-menu-list .login-btn,.menu .login-menu-list .reg-btn,.menu .login-menu-list .my-service,.menu .login-menu-list .my-userinfo,.menu .login-menu-list .my-exit,.card-grid-component-support ul li,.card-grid-component-support a,.foot_module .column a,.conv3_nav .menu ul li a,.popup-productlist-component .soft-list a,.popup-productlist-component .tab-container ul li a,.search-result-component .search-result-content ul li a,.my-services-component .help-service a,.express-application .s-product-box .edit-repair,.express-application .s-product-box .cancel-repair,.express-application .s-warm-tips-box a,.reservation-application .s-product-box .edit-repair,.reservation-application .s-product-box .cancel-repair,.reservation-application .s-product-box .point-route,.reservation-application .s-warm-tips-box a,.s-wrapDoor .s-serviceList a,s-wrapDoor .s-serviceButton a").bind("click",function(){try{
+    	var lab=$(this).attr("lab")?getContent($(this).attr("lab")):"Error: Not Maintain Value";
+		var act=$(this).attr("act")?getContent($(this).attr("act")):"Error: Not Maintain Value";
+		var cat=$(this).attr("cat")?getContent($(this).attr("cat")):"Error: Not Maintain Value";
+		analyticsSubmit(cat,act,lab,"commonClick"); 
+	}catch(f){}})
+  
+
+    $(document).on('commonClick',function(){
+        _satellite.track('support-v2:common click');
+    }); 
+
+  
+  $(document).on('homePageSiteSearch',function(){
+    _satellite.track('support-v2:home page site search');
+  });   
+
+  $(document).on('topicListSiteSearch',function(){
+    _satellite.track('support-v2:topic list site search');
+  }); 
+
+  $(document).on('topicPageInteractions',function(){
+    _satellite.track('support-v2:topic page interactions');
+  }); 
+
+  
+  $(document).on('appointmentServiceSubmit',function(){
+    _satellite.track('support-v2:appointment service submit');
+  }); 
+  
+   $(document).on('doorToDoorServiceSubmit',function(){
+    _satellite.track('support-v2:door to door service submit');
+  });    
+
+   $(document).on('repairStatusInquirySumbit',function(){
+    _satellite.track('support-v2:repair status inquiry submit');
+  });    
+  
+   $(document).on('sparePartsPriceSubmit',function(){
+    _satellite.track('support-v2:spare parts price submit');
+  });   
+  
+   $(document).on('mailServiceSubmit',function(){
+    _satellite.track('support-v2:mail service submit');
+  });   
+  
+   $(document).on('warrantyQuerySubmit',function(){
+    _satellite.track('support-v2:warranty query submit');
+  });     
+  
+  $(document).on('expressRepaireServiceSubmit',function(){
+    _satellite.track('support-v2:express repair service submit');
+  }); 
+  
+  var supportV2CommonClick="userCenterAdd userCenterModify userCenterDelete userCenterSave expressRepaireServiceModify appointmentServiceModify";
+  
+   $(document).on(supportV2CommonClick,function(event){
+         try{
+            var cat = DataLayerUtil.getEvent(event.type,'cat');
+            var act = DataLayerUtil.getEvent(event.type,'act');
+            var lab = DataLayerUtil.getEvent(event.type,'lab');
+            analyticsSubmit(cat,act,lab,"commonClick"); 
+        }catch(e){		    	
+        }  
+    });  
+
+}
+
+    
+  
+});
+
+//contact us formAbandonment
+$(function () {
+    if (digitalData && digitalData.page.category.pageType == "contact-us") {
+        var lastEmailFormInputId = "";
+        var contactUsSelector = ".conv3_form_module .email-us-content input,.conv3_form_module .email-us-content textarea";
+        $(document).on("focus", contactUsSelector, function () {
+            lastEmailFormInputId = $(this).attr("id");
+        });
+
+        function formAbandonment() {
+            if (lastEmailFormInputId) {
+                digitalData.form = {};
+                digitalData.form.contactUs = {};
+                digitalData.form.contactUs.abandonment = "contact-us:" + lastEmailFormInputId;
+                _satellite.track('contact-us:form abandonment');
+            }
+        }
+
+        window.onbeforeunload = function () {
+            formAbandonment();
+        }
+    }
+});
+
+// Set Start
+try {
+	window.setTimeout(window.hwAnalytics.updateScrollPos,1000);
+}catch(err){
+}
+try{
+  Cookies.set('starttime',Date.now());
+}catch(err){
+}
+// AA & GA Common Function
+
+
+window.variableData = {
+	'<page title>': digitalData.page.pageInfo.pageName,
+  '<URL>': digitalData.page.pageInfo.uri,
+  '<product name>':digitalData.product?digitalData.product.productInfo.marketingName:''
+  
+};
+
+window.queryVariable = function(str) {
+         var vd = window.variableData
+         var s = str
+         var reg = /^<.*>$/
+         for(var key in vd){
+            if(key == str)     s = vd[key]
+         }
+         if(reg.test(s))   s = ''
+         return s
+}
+
+
+
+window.getContent=function(str){
+	if(!str) return null;
+	var at = str.split(' - ')
+	var s = queryVariable(at[0])
+	for(var i = 1; i < at.length; i++){
+		s = s + " - " +  queryVariable(at[i])
+	}
+	return s
+}
+
+//Above code for GA page load rules
+//GA:HTML Attributes:Component
+$(document).on('click','.a-common,.a-homecat,.social_follow,.share_huawei,.a-buy,.cs_external,.a-sup-list,.a-onlinechat,.a-download,.y-promo-list a,.swipe_ul a,.a-common.sitemap_wrapper,.sitemap-component a,.cs_open,.cs_external,.conv3_global_selector a,.s3_pro_url,.graphic,.a-viewpdf',function(e){
+        var lab =  $(this).attr('lab') ? getContent($(this).attr('lab')):'Error: Not Maintain Value'
+        var act =  $(this).attr('act') ? getContent($(this).attr('act')):'Error: Not Maintain Value'       
+        var cat =  $(this).attr('cat') ? getContent($(this).attr('cat')):'Error: Not Maintain Value'        
+        var _p = window.location.hash
+        if(_p=="#huawei_partner" && $(this).hasClass('btn_buy')){
+        }else{
+                 ga('send', 'event', cat, act, lab);
+        }
+});
+//GA:API Based:Datalayer 
+var marketingListener = "emailSubSuccess emailSubFail headerProductFilter productCompareAdd productCancelClose autoSuggestSearch pureSearch searchByDropdownFilter pressNewsListSearch pressNewsList contactUsHotline contactUsFeedback m2mDistributor HotSearch videoClosed supportProductListingSearch pressAwardList pressVideoList hotspotsClicked newsListLoadMore productMenuModuleLoadMore"
+var supportListener = " SupportSearch supportPdpDropdown supportPdpFaqSearch faqDetailpageIsthisContentHelpful submitFindServiceByCountryCity searchRecyclingPoint supportSearchAndResultSuccess clickOnSupportServiceCenterResult submitFindServiceByAddressDistance findAStore supportSparepartPrice submitPostalRepairApointment supportSearchAutoSuggest appointmentServiceSuccess searchRecyclingStoreClick"
+$(document).on(marketingListener + supportListener, function(event) {
+        var cat = DataLayerUtil.getEvent(event.type,'cat')
+        var act = DataLayerUtil.getEvent(event.type,'act')
+        var lab = DataLayerUtil.getEvent(event.type,'lab')
+        ga('send', 'event', cat, act, lab)
+});
+//page error
+$(document).ready(function(){
+         if(digitalData.page && digitalData.page.category.pageType == "error")     ga('send', 'event', "Error", "404", document.URL)
+})
+
+//Scroll For GA 
+$(document).ready(function(){
+         if(typeof gascroll != "undefined"){
+                   //var cat = viewType() == 'pc' ? 'Desktop' : viewType();
+                   var cat = (viewType() == 'pc' ? 'Desktop' : viewType()) + ' Scroll'; 
+                   var roll_25 = 0, roll_50 = 0,roll_75 = 0,roll_100 = 0 ,gaScrollPercent = 0;
+                   var lab = getContent("<page title>")
+                   $(document).on('scroll',function(){
+                            gaScrollPercent = Cookies.get('scrollPercentage') || 0;
+                            if(gaScrollPercent > 24 && gaScrollPercent < 49 && roll_25==0){
+                                     roll_25 = 1
+                                     var act = "Content25%"  
+                                     ga('send', 'event', cat, act, lab,{'nonInteraction':1});
+                            }
+                            if(gaScrollPercent > 49 && gaScrollPercent < 74 && roll_50==0){
+                                     roll_50 = 1
+                                     var act = "Content50%"  
+                                     ga('send', 'event', cat, act, lab,{'nonInteraction':1});
+                            }
+                            if(gaScrollPercent > 74 && gaScrollPercent < 99 && roll_75==0){
+                                     roll_75 = 1
+                                     var act = "Content75%"  
+                                     ga('send', 'event', cat, act, lab,{'nonInteraction':1});
+                            }
+                            if(gaScrollPercent == 100 && roll_100==0){
+                                     roll_100 = 1
+                                     var act = "Content100%"         
+                                     ga('send', 'event', cat, act, lab,{'nonInteraction':1});
+                            }
+                   })
+         }
+})
+//Minisite
+//For minisite video
+window.trackEvent =function(category, action, label, value) {
+         try {
+        action = decodeURI(action);
+    } catch (err) {
+         action = decodeURI(encodeURI(action));
+    }
+    try {
+        ga('send', 'event', category, action, label);
+    } catch (err) {}
+}
+});

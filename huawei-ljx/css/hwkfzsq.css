@@ -1,0 +1,141 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    font-style: normal;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style:none;
+}
+body{
+    background: url("../imgs/bbs_bg.jpg");
+    background-size: 100% 100%;
+}
+
+#header{
+    width: 100%;
+    height: 89px;
+    line-height:89px;
+    float: left;
+}
+#hContent{
+    width: 90%;
+    height: 45px;
+    line-height:60px;
+    margin:20px auto;
+}
+#hContent img{
+    float: left;
+}
+#hContent p{
+    float: right;
+}
+#hContent p a{
+    color:#414343;
+}
+#hContent .a1{
+    color:#91989e;
+}
+#hContent p a:hover{
+    text-decoration: underline;
+}
+
+#nav{
+    width: 100%;
+    height: 50px;
+    float: left;
+}
+
+#center{
+    width: 100%;
+    height: 607px;
+    float: left;
+}
+#cContent{
+    width: 80%;
+    height:100%;
+    margin:auto;
+    text-align: center;
+}
+#cContent .title{
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 600;
+    color: #323232;
+    letter-spacing: 17px;
+}
+#cContent .content{
+    margin-top: 10px;
+    margin-bottom: 55px;
+    line-height: 36px;
+    font-size: 26px;
+    color: #808080;
+}
+#cContent .c_center{
+    width: 100%;
+    height: 270px;
+}
+#cContent  .c_center .cc_left, .c_center .cc_center, .c_center .cc_right{
+    width: 29%;
+    height: 270px;
+    float: left;
+    background: #fff;
+    background:rgba(255,255,255,0.7);   /*背景透明文字不透明 ，opcity背景文字都透明*/
+    margin: 0 17px;
+
+}
+#cContent  .c_center .cc_left .cl_content,.cc_content, .cr_content{
+    width: 80%;
+    height: 170px;
+    margin:40px;
+}
+#cContent  .c_center .cc_left .cl_content .cl_img ,.cc_content .cl_img ,.cr_content .cl_img {
+    width: 100%;
+    height: 65px;
+    float: left;
+
+}
+#cContent  .c_center .cc_left .cl_content .cl_img img,.cc_content .cl_img img,.cr_content .cl_img img{
+    width:100%;
+    height: 100%;
+    float: left;
+}
+#cContent  .c_center .cc_left .cl_content .cl_p, .cc_content .cl_p, .cr_content .cl_p{
+    width: 100%;
+    height: 85px;
+    float: left;
+    margin-top:30px;
+}
+#cContent  .c_center .cc_left .cl_content  .cl_p p,.cc_content  .cl_p p,.cr_content  .cl_p p{
+    width: 220px;
+    line-height:30px;
+    margin-left:20px ;
+    text-align: left;
+    font-size: 16px;
+    color: #a1a1a1;
+}
+#cContent .c_bottom{
+    width: 70%;
+    height: 60px;
+    margin:auto;
+    margin-top:70px;
+    text-align: center;
+}
+
+#footer{
+    width: 100%;
+    height: 60px;
+    line-height:60px;
+    float: left;
+    text-align: center;
+}
+#footer p,a{
+    color: #dbb3b1;
+}
+#footer a:hover{
+    text-decoration: underline;
+}

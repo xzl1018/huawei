@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>登录-华为</title>
+<link rel="shortcut icon" href="img_ent_en_logo_ico.ico" />
+</head>
+<style>
+*{
+    margin:0;
+    padding:0;
+    font-family: "微软雅黑";
+    font-size:14px;
+    font-style: normal;
+}
+a{
+  text-decoration: none;
+  color:black;
+}
+li{
+    list-style:none;
+}
+#ks{
+  width:540px;
+  height:760px;
+  margin-left:360px;
+  border:1px solid rgb(204,204,204);
+  float:left;
+  border-radius:5px;
+}
+#ks strong{
+	margin-left:93px;
+    font-size:46px;
+	position:relative;
+	top:45px;
+}
+#xhx:hover{
+	text-decoration:underline;
+	}
+input{
+	padding-left:20px;
+	}
+</style>
+<body>
+<img src="../jiesuan/imgs/huawei_logo.png" style="margin:40px 560px;"/>
+<div id="ks">
+<strong>登录</strong>
+<form>
+<ul>
+<li style="margin-top:40px;margin-left:80px;position:relative;top:35px;">账号/邮箱<span style="color:red;">*</span></li>
+<li style="margin-top:40px;margin-left:80px;" id="zh"><input type="text" class="inp" name="uname" placeholder="请输入账号/邮箱" style="width:340px;height:50px;border:1px solid rgb(204,204,204);border-radius:5px;"/></li>
+<li style="margin:40px;position:relative;left:40px;">密码<span style="color:red;">*</span></li>
+<li style="margin-left:80px;position:relative;top:-35px;""><input type="password" class="inp" name="pwd" placeholder="请输入密码" style="width:340px;height:50px;border:1px solid rgb(204,204,204);border-radius:5px;"/></li>
+<li>
+<a href="../guanwang/shouye1.html"><div style="background-color:rgb(246,111,106);width:360px;height:50px;border:1px solid rgb(255,255,255);border-radius:5px;margin-left:80px;margin-top:40px;"><p style="color:white;margin:15px 151px;font-size:18px;">登录</p></div></a>
+</li>
+</ul>
+<a href="" style="font-size:16px;position:relative;top:-120px;left:80px;" id="xhx">忘记密码</a>
+<a href="../zc/zhuce.html" style="font-size:18px;position:relative;top:40px;left:150px;" id="xhx">立即注册</a>
+<div style="background-color:white;border:1px solid;width:360px;height:20px;position:relative;top:-267px;left:80px;display:none;" id="bz">315348764@qq.com</div>
+</form>
+<div style="height:1px;width:360px;margin-left:80px;background-color:rgb(204,204,204);float:left;margin-top:80px;" id="xian"></div>
+<p style="margin-left:180px;margin-top:30px;float:left;font-size:18px;">通过其他方式登录：</p>
+<div style="background:url(../jiesuan/imgs/sprite.png);background-position:0px -250px;width:36px;height:36px;float:left;margin-top:80px;margin-left:-130px;"></div>
+<div style="background-image:url(../jiesuan/imgs/sprite.png);background-position:-41px -250px;width:36px;height:36px;float:left;margin-top:80px;margin-left:-70px;""></div>
+<div style="background-image:url(../%E7%AB%8B%E5%8D%B3%E7%BB%93%E7%AE%97/imgs/sprite.png);background-position:-82px -250px;width:36px;height:36px;float:left;margin-top:150px;margin-left:-260px;""></div>
+<a href="" id="xhx" style="float:left;margin-top:152px;margin-left:-230px;">获取更多帮助?</a>
+</div>
+<div style="width:100%;height:100px;float:left;"></div>
+<script>
+var zh=document.getElementById("zh");
+var bz=document.getElementById("bz");
+var xian=document.getElementById("xian");
+zh.onmousedown=function(){
+	bz.style.display='block';
+	xian.style.marginTop='58px';
+	}
+bz.onmousedown=function(){
+	bz.style.display='none';
+	xian.style.marginTop='80px';
+	}
+</script>
+</body>
+</html>

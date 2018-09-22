@@ -1,0 +1,51 @@
+$(".section7 li").click(function(){var d=$(this).attr("wrap");
+if(!d){return
+}var b="open";
+var a="hp body:menu:explore";
+var c="phones:all phones";
+if(d!="menu_module_allphone"){d=d.replace("menu_module_","");
+c="more products:"+d
+}analyticsSubmit(a,b,c,EVENT_TYPE_OPEN_MENU_SECOND_LEVEL)
+});
+(function(a){a.get("/content/huawei-cbg-site-admin/common/campaigns/product-announcements/jcr:content.experienceinfo.json",function(c){if(c&&c.active===true){var g=c.announcements;
+var f=window.digitalData.page.pageInfo.siteCode2;
+var b=null;
+for(var e=0;
+e<g.length;
+e++){if(g[e].sites.indexOf(f)>-1){b=g[e].content;
+break
+}}if(b&&a(".conv3_wrap .header-tag-title")){var d=a(b);
+d.insertAfter(a(".conv3_wrap .header-tag-title").first());
+d["change-bg-img"]()
+}}})
+})(jQuery);
+$(document).ready(function(){function c(e){var d=$(e).attr("data-src");
+$(e).attr("src",d).removeClass("lazy_load")
+}var b,a;
+$(".lazy_load").each(function(){b=$(document).scrollTop();
+a=$(this).offset().top;
+if((b+1000)>a){c(this)
+}});
+$(window).scroll(function(d){$(".lazy_load").each(function(){b=$(document).scrollTop();
+a=$(this).offset().top;
+if((b+1000)>a){c(this)
+}})
+})
+});
+~function(){if(!!$(".section1.kv").length){$(".section1").each(function(){var b=$(this);
+if(!b.find(".btns").length&&!!(b.attr("data-videoType")=="pure-banner"||"common-video")&&!!b.attr("link")){b.css("cursor","pointer");
+b.click(function(){window.open(b.attr("link"))
+})
+}else{b.css("cursor","default")
+}})
+}var a=$(".section4").length;
+if(!!a){$(".section4 .part1,.section4 .part2").each(function(){var c=$(this);
+var b=c.hasClass("part1")?!c.find(".btn_wrap").length:!c.find(".btn_wrap2").length;
+if(!!c.attr("link")){if(b){c.click(function(){var d=c.attr("data-open");
+d?window.open(c.attr("link")):window.location.href=c.attr("link")
+});
+!c.attr("link")&&c.css("cursor","default")
+}else{c.css("cursor","default")
+}}else{c.css("cursor","default")
+}})
+}}();

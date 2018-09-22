@@ -1,0 +1,94 @@
+// set visitor api
+$(function(){
+	var visitor = Visitor.getInstance('7DA25C0158C1322D0A495DB1@AdobeOrg');
+	var mppingId = _satellite.getVar('membership:mapping id');
+	if(mppingId) {
+     console.log("has mppingId==>"+mppingId);
+		_satellite.setCookie('mppingId',mppingId,7);
+	} else {
+     console.log("get from cookie mppingId==>"+mppingId);
+		mppingId = _satellite.readCookie('mppingId');
+	}
+
+	if(mppingId && visitor) {
+		visitor.setCustomerIDs({
+			"AdobeCampaignID":{ // integration code
+				"id":mppingId,
+				"authState":Visitor.AuthState.AUTHENTICATED
+			}
+		});
+	}
+});
+
+// set visitor api for logged in users by binding uid
+$(function(){
+	var visitor = Visitor.getInstance('7DA25C0158C1322D0A495DB1@AdobeOrg');
+	var uid = Cookies.get('uid');
+	if(uid && visitor) {
+    console.log("uid is: "+uid);
+		visitor.setCustomerIDs({
+			"AdobeCampaignID":{ // integration code
+				"id":uid,
+				"authState":Visitor.AuthState.AUTHENTICATED
+			}
+		});
+	}
+});
+
+
+
+/*
+var strMsg,mapID;
+var visitor = Visitor.getInstance('7DA25C0158C1322D0A495DB1@AdobeOrg');
+
+function listenMessage(e) {
+  
+   strMsg = e.data.toString();    
+   if(strMsg.indexOf("map") > "-1"){
+        mapID = strMsg.split(":")[1];
+      }
+  //console.log("MapID==>"+mapID);
+  if(typeof(mapID) !== "undefined"){
+  	 if(mapID != "" && visitor){
+				visitor.setCustomerIDs({
+					"AdobeCampaignID":{ // alias in customer attribute
+						"id":mapID,
+						"authState":Visitor.AuthState.AUTHENTICATED
+			}
+		});
+		}
+  }
+
+}
+
+
+if (window.addEventListener) {
+      window.addEventListener("message", listenMessage);
+  } else {
+     window.attachEvent("onmessage", listenMessage);
+}
+*/
+
+/*=============================================================================================*/
+/*var strMsg,mapID;
+
+function listenMessage(e) {
+       strMsg = e.data.toString();    
+  		console.log("actual=="+JSON.stringify(strMsg));
+  		 if(strMsg.indexOf("map") > "-1"){
+         
+         mapID = strMsg.split(":")[1];
+         console.log("MapID=>"+mapID);
+         //s.eVar98 = strMsg;
+         localStorage.setItem('mapId',mapID);
+          _satellite.setVar('mapId',mapID);
+          _satellite.track("campaignMapId");
+      }  
+  }
+ 
+  if (window.addEventListener) {
+      window.addEventListener("message", listenMessage);
+  } else {
+      window.attachEvent("onmessage", listenMessage);
+  }
+*/
